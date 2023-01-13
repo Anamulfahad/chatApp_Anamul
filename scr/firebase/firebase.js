@@ -51,9 +51,22 @@ class Fire {
         }
     }
 
+    get = callback => {
+        this.db.on('child_added', snapshot => callback(this.parse(snapshot)));
+    }
+
+    off(){
+        this.db.off()
+    }
+
     get db (){
         return firebase.database().ref("messages");
     }
 
+    get uid(){
+        return (firebase.auth().currentUser || {}).uid;
+    }
     
 }
+
+export default new Fire();
