@@ -12,6 +12,7 @@ export default class SgnIn extends React.Component{
             <View style={styles.viewStyle}>
                 <Text>Input User Name</Text>
                 <TextInput placeholder="User Name" onChange={name => {this.setState({name});}} value={this.stat.name} />
+                <button onClick={this.continue}>Enter</button>
             </View>
         );
     }
