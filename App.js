@@ -1,13 +1,13 @@
 import  {creatAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack' 
 
-import SignIn from './src/screens/SignIn'
-import SignUp from './src/screens/SignUp'
+import SignIn from './scr/screens/SignIn'
+import chat from './scr/screens/chat'
 
 const appNavigator = createStackNavigator(
   {
     SignIn: SignIn,
-    SignUp: SignUp
+    chat: chat
   },
   {
     headerNode: "none"
