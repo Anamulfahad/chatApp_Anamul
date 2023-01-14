@@ -1,8 +1,10 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import firebase from "firebase/app"
 import { initializeApp, getApps, getApp } from "firebase/app";
 import "firebase/auth";
-var defaultAuth = firebase.getAuth();
-console.log(defaultAuth);
+import "firebase/database";
+// var defaultAuth = firebase.auth();
+// console.log(defaultAuth);
 
 class Fire {
     constructor(){
@@ -10,7 +12,7 @@ class Fire {
         this.checkAuth()
     }
     init = () => {
-        if(getApps().length === 0){
+        if(!firebase.apps.length){
             firebase.initializeApp({
                 apiKey: "AIzaSyCp5gqjE93axYLjxLCX3-3NBKoT8MZINkU",
                 authDomain: "chatauth-47793.firebaseapp.com",
@@ -23,7 +25,7 @@ class Fire {
     };
 
     checkAuth = () =>{
-        firebase.auth().onAuthStateChange(user => {
+        firebase.auth().onAuthStateChanged(user => {
             if(!user){
                 firebase.auth().signInAnonymously();
             }

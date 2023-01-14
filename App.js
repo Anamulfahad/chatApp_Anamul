@@ -1,4 +1,4 @@
-import  {creatAppContainer} from 'react-navigation'
+import  {createAppContainer} from 'react-navigation'
 import {createStackNavigator} from 'react-navigation-stack' 
 
 import SignIn from './scr/screens/SignIn'
@@ -14,4 +14,4 @@ const appNavigator = createStackNavigator(
   }
 )
 
-export default creatAppContainer(appNavigator);
+export default createAppContainer(appNavigator);

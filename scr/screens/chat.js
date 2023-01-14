@@ -27,7 +27,7 @@ export default class chat extends React.Component{
     }
 
     render(){
-        const Chat = <GiftedChat messages={this.state.message} onSend = {Fire.send} user={this.user}/>
+        const Chat = <GiftedChat messages={this.state.messages} onSend = {Fire.send} user={this.user}/>
         if (Platform === 'andro'){
             <KeyboardAvoidingView style={{flex: 1}} behavior='padding' keyboardVerticalOffset={30} enabled>
                 {Chat}
