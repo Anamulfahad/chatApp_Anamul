@@ -16,6 +16,7 @@ class Fire {
             firebase.initializeApp({
                 apiKey: "AIzaSyCp5gqjE93axYLjxLCX3-3NBKoT8MZINkU",
                 authDomain: "chatauth-47793.firebaseapp.com",
+                databaseURL: "https://chatauth-47793-default-rtdb.firebaseio.com",
                 projectId: "chatauth-47793",
                 storageBucket: "chatauth-47793.appspot.com",
                 messagingSenderId: "487781291782",
@@ -54,12 +55,12 @@ class Fire {
             createdAt,
             text,
             user
-        }
-    }
+        };
+    };
 
     get = callback => {
         this.db.on('child_added', snapshot => callback(this.parse(snapshot)));
-    }
+    };
 
     off(){
         this.db.off()
