@@ -1,4 +1,8 @@
-import * as firebase from 'firebase'
+import firebase from "firebase/app"
+import { initializeApp, getApps, getApp } from "firebase/app";
+import "firebase/auth";
+var defaultAuth = firebase.getAuth();
+console.log(defaultAuth);
 
 class Fire {
     constructor(){
@@ -6,7 +10,7 @@ class Fire {
         this.checkAuth()
     }
     init = () => {
-        if(!firebase.apps.length){
+        if(getApps().length === 0){
             firebase.initializeApp({
                 apiKey: "AIzaSyCp5gqjE93axYLjxLCX3-3NBKoT8MZINkU",
                 authDomain: "chatauth-47793.firebaseapp.com",
@@ -21,7 +25,7 @@ class Fire {
     checkAuth = () =>{
         firebase.auth().onAuthStateChange(user => {
             if(!user){
-                firebase.auth.signInAnonymously();
+                firebase.auth().signInAnonymously();
             }
         });
     };
